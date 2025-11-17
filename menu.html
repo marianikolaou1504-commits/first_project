@@ -47,7 +47,7 @@
             font-size: 16px;
         }
         .menu-wrapper {
-            max-width: 1000px;
+            max-width: 1100px;
             margin: 30px auto 60px;
             padding: 0 20px 40px;
             background: #fff;
@@ -68,36 +68,43 @@
             letter-spacing: 1px;
             color: #c08d4f;
         }
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 16px 32px;
+        }
         .menu-item {
             display: flex;
+            flex-direction: column;
             justify-content: space-between;
-            margin-bottom: 10px;
+            gap: 4px;
+        }
+        .menu-item-header {
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
         }
         .menu-item-name {
             font-weight: bold;
         }
+        .menu-item-price {
+            font-weight: bold;
+            white-space: nowrap;
+        }
         .menu-item-desc {
             font-size: 13px;
             color: #777;
-        }
-        .menu-item-price {
-            font-weight: bold;
-            margin-left: 10px;
-            white-space: nowrap;
         }
         .footer-note {
             text-align: center;
             font-size: 12px;
             color: #777;
             padding-bottom: 15px;
+            line-height: 1.5;
         }
         @media (max-width: 600px) {
-            .menu-item {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            .menu-item-price {
-                margin-top: 3px;
+            .menu-item-header {
+                flex-direction: row;
             }
         }
     </style>
@@ -109,112 +116,502 @@
     <nav>
         <a href="index.html">Home</a>
         <a href="menu.html">Menu</a>
-        <a href="#contact">Contact</a>
     </nav>
 </header>
 
 <section class="hero">
-    <h2>Brunch & All Day Menu</h2>
-    <p>Fresh ingredients, cozy vibes and comfort food in the heart of the city.</p>
+    <h2>Welcome to Edem's Yard</h2>
+    <p>Brunch, pancakes, coffee & comfort food in the heart of the city.</p>
 </section>
 
 <div class="menu-wrapper">
 
+    <!-- BRUNCH FAVOURITES -->
     <div class="menu-section">
         <h3>Brunch Favourites</h3>
-
-        <div class="menu-item">
-            <div>
-                <div class="menu-item-name">Avocado Toast</div>
-                <div class="menu-item-desc">Sourdough, smashed avocado, poached egg, cherry tomatoes.</div>
+        <div class="menu-grid">
+            <div class="menu-item">
+                <div class="menu-item-header">
+                    <div class="menu-item-name">Eggs Benedict</div>
+                    <div class="menu-item-price">€10.00</div>
+                </div>
+                <div class="menu-item-desc">
+                    Toasted sourdough bread or English muffin, fresh mashed avocado,
+                    smoked salmon or bacon, 2 poached eggs and homemade hollandaise sauce.
+                </div>
             </div>
-            <div class="menu-item-price">€8.50</div>
-        </div>
 
-        <div class="menu-item">
-            <div>
-                <div class="menu-item-name">Eggs Benedict</div>
-                <div class="menu-item-desc">Poached eggs, hollandaise, bacon, toasted brioche.</div>
+            <div class="menu-item">
+                <div class="menu-item-header">
+                    <div class="menu-item-name">Baby Potato Casserole</div>
+                    <div class="menu-item-price">€10.50</div>
+                </div>
+                <div class="menu-item-desc">
+                    Baby potatoes, crispy bacon, caramelized onions, béchamel sauce,
+                    melted regato, 2 eggs, French baguette crumbs and chives.
+                </div>
             </div>
-            <div class="menu-item-price">€9.90</div>
-        </div>
 
-        <div class="menu-item">
-            <div>
-                <div class="menu-item-name">French Toast</div>
-                <div class="menu-item-desc">Brioche, cinnamon, maple syrup, seasonal fruit.</div>
+            <div class="menu-item">
+                <div class="menu-item-header">
+                    <div class="menu-item-name">Sweet Egg & Bacon Sandwich</div>
+                    <div class="menu-item-price">€11.00</div>
+                </div>
+                <div class="menu-item-desc">
+                    Toasted brioche with homemade ranch dressing, cheddar scrambled eggs,
+                    sautéed bananas and bacon.
+                </div>
             </div>
-            <div class="menu-item-price">€7.50</div>
+
+            <div class="menu-item">
+                <div class="menu-item-header">
+                    <div class="menu-item-name">Granola Parfait / Vegan Granola</div>
+                    <div class="menu-item-price">€8.00</div>
+                </div>
+                <div class="menu-item-desc">
+                    Greek yogurt (2%) or coconut yogurt, nuts and granola seeds,
+                    fresh fruits and berry sauce.
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="menu-item-header">
+                    <div class="menu-item-name">Champs-Élysées</div>
+                    <div class="menu-item-price">€9.00</div>
+                </div>
+                <div class="menu-item-desc">
+                    A true French butter omelette with chives, served on wholegrain avocado toast.
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="menu-item-header">
+                    <div class="menu-item-name">Hummus Avocado Toast</div>
+                    <div class="menu-item-price">€8.50</div>
+                </div>
+                <div class="menu-item-desc">
+                    Multigrain toast with avocado, hummus, sautéed mushrooms,
+                    cherry tomatoes and sweet corn.
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="menu-item-header">
+                    <div class="menu-item-name">Royal</div>
+                    <div class="menu-item-price">€10.00</div>
+                </div>
+                <div class="menu-item-desc">
+                    2 poached eggs, green leaf salad over toasted wholegrain bread,
+                    cottage cheese and smoked salmon. Add avocadaise +€3.00.
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="menu-item-header">
+                    <div class="menu-item-name">Ultimate</div>
+                    <div class="menu-item-price">€11.00</div>
+                </div>
+                <div class="menu-item-desc">
+                    New York croissant roll sandwich with caramelized bacon, American cheddar,
+                    sliced avocado, fried egg and mild chipotle-style sauce.
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="menu-item-header">
+                    <div class="menu-item-name">Brunshaw</div>
+                    <div class="menu-item-price">€9.00</div>
+                </div>
+                <div class="menu-item-desc">
+                    Warm New York bagel filled with cream cheese, bacon, avocado and fried egg.
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="menu-item-header">
+                    <div class="menu-item-name">Monte Cristo</div>
+                    <div class="menu-item-price">€10.00</div>
+                </div>
+                <div class="menu-item-desc">
+                    French toast with smoked turkey, cheddar and mozzarella cheese,
+                    strawberry jam, icing sugar and scrambled eggs.
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="menu-item-header">
+                    <div class="menu-item-name">Croque Madame</div>
+                    <div class="menu-item-price">€9.50</div>
+                </div>
+                <div class="menu-item-desc">
+                    Grilled cheese and ham sandwich covered in béchamel sauce,
+                    topped with a fried egg.
+                </div>
+            </div>
         </div>
     </div>
 
+    <!-- PANCAKES & SWEET BRUNCH -->
     <div class="menu-section">
-        <h3>Mains & Bowls</h3>
+        <h3>Pancakes & Sweet Brunch</h3>
+        <div class="menu-grid">
 
-        <div class="menu-item">
-            <div>
-                <div class="menu-item-name">Chicken Pasta</div>
-                <div class="menu-item-desc">Grilled chicken, cream sauce, parmesan, fresh herbs.</div>
+            <div class="menu-item">
+                <div class="menu-item-header">
+                    <div class="menu-item-name">Pancake Lover</div>
+                    <div class="menu-item-price">€8.00</div>
+                </div>
+                <div class="menu-item-desc">
+                    A tower of fluffy buttermilk pancakes with 1 spread + 1 topping.
+                    Maple syrup, Nutella, white chocolate, Bueno spread, caramel,
+                    peanut butter and more.
+                </div>
             </div>
-            <div class="menu-item-price">€12.00</div>
-        </div>
 
-        <div class="menu-item">
-            <div>
-                <div class="menu-item-name">Beef Burger</div>
-                <div class="menu-item-desc">Homemade patty, cheddar, caramelised onions, fries.</div>
+            <div class="menu-item">
+                <div class="menu-item-header">
+                    <div class="menu-item-name">Snickers</div>
+                    <div class="menu-item-price">€9.00</div>
+                </div>
+                <div class="menu-item-desc">
+                    3 fluffy pancakes topped with Nutella, peanut butter,
+                    freshly roasted peanuts, Snickers ice cream and homemade caramel sauce.
+                </div>
             </div>
-            <div class="menu-item-price">€11.50</div>
-        </div>
 
-        <div class="menu-item">
-            <div>
-                <div class="menu-item-name">Vegan Buddha Bowl</div>
-                <div class="menu-item-desc">Quinoa, veggies, hummus, roasted chickpeas, tahini.</div>
+            <div class="menu-item">
+                <div class="menu-item-header">
+                    <div class="menu-item-name">The Lotus</div>
+                    <div class="menu-item-price">€9.00</div>
+                </div>
+                <div class="menu-item-desc">
+                    Fluffy pancakes topped with white chocolate, homemade Lotus spread,
+                    crushed Lotus and white chocolate Biscoff-flavoured ice cream.
+                </div>
             </div>
-            <div class="menu-item-price">€10.50</div>
+
+            <div class="menu-item">
+                <div class="menu-item-header">
+                    <div class="menu-item-name">Sweet Bacon</div>
+                    <div class="menu-item-price">€9.00</div>
+                </div>
+                <div class="menu-item-desc">
+                    A tower of fluffy buttermilk pancakes topped with maple glazed crispy bacon.
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="menu-item-header">
+                    <div class="menu-item-name">The Yard's Brioche</div>
+                    <div class="menu-item-price">€10.00</div>
+                </div>
+                <div class="menu-item-desc">
+                    French toasted brioche with mascarpone cheese, maple syrup,
+                    fresh forest fruits and raw crushed pistachios.
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="menu-item-header">
+                    <div class="menu-item-name">Chestnut Brioche</div>
+                    <div class="menu-item-price">€8.00</div>
+                </div>
+                <div class="menu-item-desc">
+                    French toasted brioche with mastic, chestnut jam, white chocolate,
+                    Nutella and mastic-flavoured ice cream.
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="menu-item-header">
+                    <div class="menu-item-name">The Nutella French Toast</div>
+                    <div class="menu-item-price">€9.00</div>
+                </div>
+                <div class="menu-item-desc">
+                    French toasted brioche filled with Nutella, dusted with icing sugar,
+                    served with maple syrup and fresh strawberries.
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="menu-item-header">
+                    <div class="menu-item-name">Creme Brûlée</div>
+                    <div class="menu-item-price">€8.00</div>
+                </div>
+                <div class="menu-item-desc">
+                    Homemade crème brûlée served with fresh forest fruits.
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="menu-item-header">
+                    <div class="menu-item-name">Les Printemps</div>
+                    <div class="menu-item-price">€8.00</div>
+                </div>
+                <div class="menu-item-desc">
+                    Freshly baked French croissant filled with Nutella,
+                    homemade vanilla crème pâtissière, fresh strawberries,
+                    caramelized almond powder and edible flowers.
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="menu-item-header">
+                    <div class="menu-item-name">Italove</div>
+                    <div class="menu-item-price">€8.00</div>
+                </div>
+                <div class="menu-item-desc">
+                    Ricotta cheese stuffed pancakes, banana, maple syrup,
+                    icing sugar and honeycomb butter.
+                </div>
+            </div>
         </div>
     </div>
 
+    <!-- BAGELS & SPECIALS -->
     <div class="menu-section">
-        <h3>Coffee & Drinks</h3>
+        <h3>Bagels & Specials</h3>
+        <div class="menu-grid">
 
-        <div class="menu-item">
-            <div>
-                <div class="menu-item-name">Flat White</div>
-                <div class="menu-item-desc">Double shot espresso, silky milk.</div>
+            <div class="menu-item">
+                <div class="menu-item-header">
+                    <div class="menu-item-name">Londoner</div>
+                    <div class="menu-item-price">€9.00</div>
+                </div>
+                <div class="menu-item-desc">
+                    2 fried eggs over toasted baguette slices, bacon,
+                    striped halloumi, baked beans and cherry tomatoes.
+                    Add hash browns +€2.00, English sausage +€2.00, mushrooms +€1.50.
+                </div>
             </div>
-            <div class="menu-item-price">€3.80</div>
-        </div>
 
-        <div class="menu-item">
-            <div>
-                <div class="menu-item-name">Iced Latte</div>
-                <div class="menu-item-desc">Espresso over ice with cold milk.</div>
+            <div class="menu-item">
+                <div class="menu-item-header">
+                    <div class="menu-item-name">Smoked Tokyo</div>
+                    <div class="menu-item-price">€11.00</div>
+                </div>
+                <div class="menu-item-desc">
+                    New York bagel topped with cream cheese, smoked salmon, avocado,
+                    poached egg, baked goat's cheese, pomegranate and honey-balsamic vinaigrette.
+                </div>
             </div>
-            <div class="menu-item-price">€4.20</div>
-        </div>
 
-        <div class="menu-item">
-            <div>
-                <div class="menu-item-name">Fresh Orange Juice</div>
-                <div class="menu-item-desc">Freshly squeezed, no sugar added.</div>
+            <div class="menu-item">
+                <div class="menu-item-header">
+                    <div class="menu-item-name">New York Bagel “The Lotus”</div>
+                    <div class="menu-item-price">€9.00</div>
+                </div>
+                <div class="menu-item-desc">
+                    Fluffy pancakes & white chocolate, homemade Lotus spread,
+                    crushed Lotus and Biscoff ice cream. (House favourite sweet.)
+                </div>
             </div>
-            <div class="menu-item-price">€3.50</div>
+
+            <div class="menu-item">
+                <div class="menu-item-header">
+                    <div class="menu-item-name">Sweet Bacon</div>
+                    <div class="menu-item-price">€9.00</div>
+                </div>
+                <div class="menu-item-desc">
+                    A tower of fluffy pancakes topped with maple glazed crispy bacon.
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="menu-item-header">
+                    <div class="menu-item-name">Cheezy</div>
+                    <div class="menu-item-price">€9.00</div>
+                </div>
+                <div class="menu-item-desc">
+                    Baked New York bagel stuffed with marinara sauce, pepperoni,
+                    Philadelphia cheese, mozzarella and a fried egg.
+                </div>
+            </div>
         </div>
     </div>
 
-    <div class="menu-section" id="contact">
-        <h3>Contact & Reservations</h3>
-        <p>📍 Old Town, Cyprus</p>
-        <p>📞 +357 99 000000</p>
-        <p>📧 hello@edemsyard.com</p>
-        <p>Opening hours: 09:00 – 17:00, Monday to Sunday</p>
+    <!-- EXTRAS & TOPPINGS -->
+    <div class="menu-section">
+        <h3>Extras & Toppings</h3>
+        <div class="menu-grid">
+            <div class="menu-item">
+                <div class="menu-item-name">Extras</div>
+                <div class="menu-item-desc">
+                    Avocado / Avocadaise €3.00, Scrambled eggs €2.00, Bacon €2.00,
+                    Banana €1.00, Striped halloumi €2.00, Salmon €3.50.
+                </div>
+            </div>
+            <div class="menu-item">
+                <div class="menu-item-name">Pancake Toppings</div>
+                <div class="menu-item-desc">
+                    Strawberries +€1.50, Forest fruits +€1.50, Marshmallows,
+                    flaked almonds, roasted hazelnuts, chocolate chips, biscuit,
+                    Bueno, Caprice, Oreo cookies, Crunchie, Smarties, coconut flakes,
+                    ice cream +€2.00, Flake and more.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- DRINKS -->
+    <div class="menu-section">
+        <h3>Drinks</h3>
+        <div class="menu-grid">
+
+            <div class="menu-item">
+                <div class="menu-item-header">
+                    <div class="menu-item-name">Single Espresso</div>
+                    <div class="menu-item-price">€2.00</div>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="menu-item-header">
+                    <div class="menu-item-name">Double Espresso</div>
+                    <div class="menu-item-price">€2.50</div>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="menu-item-header">
+                    <div class="menu-item-name">Americano</div>
+                    <div class="menu-item-price">€3.50</div>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="menu-item-header">
+                    <div class="menu-item-name">Latte</div>
+                    <div class="menu-item-price">€4.00</div>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="menu-item-header">
+                    <div class="menu-item-name">Cappuccino (Double)</div>
+                    <div class="menu-item-price">€4.50</div>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="menu-item-header">
+                    <div class="menu-item-name">Freddo Espresso</div>
+                    <div class="menu-item-price">€3.50</div>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="menu-item-header">
+                    <div class="menu-item-name">Freddo Cappuccino</div>
+                    <div class="menu-item-price">€4.00</div>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="menu-item-header">
+                    <div class="menu-item-name">Iced Latte</div>
+                    <div class="menu-item-price">€4.50</div>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="menu-item-header">
+                    <div class="menu-item-name">Frappe</div>
+                    <div class="menu-item-price">€3.00</div>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="menu-item-header">
+                    <div class="menu-item-name">Nescafe</div>
+                    <div class="menu-item-price">€3.00</div>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="menu-item-header">
+                    <div class="menu-item-name">Cyprus Coffee</div>
+                    <div class="menu-item-price">€2.00</div>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="menu-item-header">
+                    <div class="menu-item-name">Hot Tea</div>
+                    <div class="menu-item-price">€2.60</div>
+                </div>
+                <div class="menu-item-desc">
+                    Freshly made tea, red berry & flower or lemon & ginger.
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="menu-item-header">
+                    <div class="menu-item-name">Fresh Orange Juice</div>
+                    <div class="menu-item-price">€4.50</div>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="menu-item-header">
+                    <div class="menu-item-name">Soft Drinks</div>
+                    <div class="menu-item-price">€2.50</div>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="menu-item-header">
+                    <div class="menu-item-name">Still Water (Small)</div>
+                    <div class="menu-item-price">€1.00</div>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="menu-item-header">
+                    <div class="menu-item-name">Still / Sparkling Water</div>
+                    <div class="menu-item-price">€2.50</div>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="menu-item-header">
+                    <div class="menu-item-name">Matcha Tea</div>
+                    <div class="menu-item-price">€4.00</div>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="menu-item-header">
+                    <div class="menu-item-name">Matcha Latte</div>
+                    <div class="menu-item-price">€5.00</div>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="menu-item-header">
+                    <div class="menu-item-name">Blue Matcha Latte</div>
+                    <div class="menu-item-price">€5.00</div>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="menu-item-header">
+                    <div class="menu-item-name">Eli Klein Lemonade</div>
+                    <div class="menu-item-price">€4.00</div>
+                </div>
+                <div class="menu-item-desc">
+                    A natural colour-changing lemonade.
+                </div>
+            </div>
+        </div>
     </div>
 
     <div class="footer-note">
-        *Prices and items may change seasonally.
+        Please be advised that food prepared here may contain these ingredients:
+        milk, eggs, wheat, soybean, peanuts, tree nuts, fish and shellfish.
+        Please talk to your server if you have any concerns.
     </div>
+
 </div>
 
 </body>
