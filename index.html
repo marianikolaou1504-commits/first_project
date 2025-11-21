@@ -54,6 +54,50 @@
     <p><strong>Sunday:</strong> 9:15 am – 5:00 pm</p>
 </section>
 
+    <section id="reservations">
+    <h2>Book a Table</h2>
+    <p>Choose day and time slot to request an online reservation.</p>
+
+    <p>
+        <label for="dayType"><strong>Day:</strong></label><br>
+        <select id="dayType" name="dayType">
+            <option value="weekday">Tuesday – Friday</option>
+            <option value="weekend">Saturday – Sunday</option>
+        </select>
+    </p>
+
+    <p>
+        <label for="timeSlot"><strong>Time slot:</strong></label><br>
+        <select id="timeSlot" name="timeSlot">
+            <!-- θα γεμίσει με JavaScript -->
+        </select>
+    </p>
+
+    <p>
+        <label for="name"><strong>Name:</strong></label><br>
+        <input type="text" id="name" name="name" placeholder="Your name">
+    </p>
+
+    <p>
+        <label for="people"><strong>Number of people:</strong></label><br>
+        <input type="number" id="people" name="people" min="1" max="12" value="2">
+    </p>
+
+    <p>
+        <label for="notes"><strong>Notes (optional):</strong></label><br>
+        <textarea id="notes" name="notes" rows="3" cols="30"
+                  placeholder="Birthday, special requests etc."></textarea>
+    </p>
+
+    <p>
+        <button type="button" class="btn">Request Reservation</button>
+    </p>
+
+    <p style="font-size:12px; color:#777;">
+        * This is a reservation request. We will confirm your booking via phone or email.
+    </p>
+</section>
+
 <section>
     <h2>Visit Us</h2>
     <p>Evanthias Pieridou, Larnaca, CY 4021</p>
@@ -67,6 +111,49 @@
       </a>
     </p>
 </section>
+
+    <script>
+  // Slots για Τρίτη–Παρασκευή (8:00–15:00)
+  const weekdaySlots = [
+    "08:00 – 09:30",
+    "09:30 – 11:00",
+    "11:00 – 12:30",
+    "12:30 – 14:00",
+    "14:00 – 15:00"
+  ];
+
+  // Slots για Σάββατο–Κυριακή (09:15–17:00)
+  const weekendSlots = [
+    "09:15 – 10:45",
+    "10:45 – 12:15",
+    "12:15 – 13:45",
+    "13:45 – 15:15",
+    "15:15 – 17:00"
+  ];
+
+  function updateTimeSlots() {
+    const dayType = document.getElementById("dayType").value;
+    const select = document.getElementById("timeSlot");
+
+    // καθάρισε τα παλιά options
+    select.innerHTML = "";
+
+    const slots = dayType === "weekday" ? weekdaySlots : weekendSlots;
+
+    slots.forEach(function (slot) {
+      const option = document.createElement("option");
+      option.value = slot;
+      option.textContent = slot;
+      select.appendChild(option);
+    });
+  }
+
+  // Γέμισμα των slots όταν φορτώνει η σελίδα
+  document.addEventListener("DOMContentLoaded", updateTimeSlots);
+
+  // Αλλαγή slots όταν αλλάζει το dayType
+  document.getElementById("dayType").addEventListener("change", updateTimeSlots);
+</script>
 
 </body>
 </html>
