@@ -43,59 +43,57 @@
    <a class="btn" href="menu.html">See Menu</a>
 </section>
 
-<section>
-    <h2>Opening Hours</h2>
-    <p><strong>Monday:</strong> Closed</p>
-    <p><strong>Tuesday:</strong> 8:00 am – 3:00 pm</p>
-    <p><strong>Wednesday:</strong> 8:00 am – 3:00 pm</p>
-    <p><strong>Thursday:</strong> 8:00 am – 3:00 pm</p>
-    <p><strong>Friday:</strong> 8:00 am – 3:00 pm</p>
-    <p><strong>Saturday:</strong> 9:15 am – 5:00 pm</p>
-    <p><strong>Sunday:</strong> 9:15 am – 5:00 pm</p>
-</section>
-
-    <section id="reservations">
+<section id="reservations">
     <h2>Book a Table</h2>
-    <p>Choose day and time slot to request an online reservation.</p>
+    <p>Choose the day and time slot to request an online reservation.</p>
 
-    <p>
-        <label for="dayType"><strong>Day:</strong></label><br>
-        <select id="dayType" name="dayType">
-            <option value="weekday">Tuesday – Friday</option>
-            <option value="weekend">Saturday – Sunday</option>
-        </select>
-    </p>
+    <form id="reservationForm">
+        <p>
+            <label for="day"><strong>Day:</strong></label><br>
+            <select id="day" name="day" required>
+                <option value="tuesday">Tuesday</option>
+                <option value="wednesday">Wednesday</option>
+                <option value="thursday">Thursday</option>
+                <option value="friday">Friday</option>
+                <option value="saturday">Saturday</option>
+                <option value="sunday">Sunday</option>
+            </select>
+        </p>
 
-    <p>
-        <label for="timeSlot"><strong>Time slot:</strong></label><br>
-        <select id="timeSlot" name="timeSlot">
-            <!-- θα γεμίσει με JavaScript -->
-        </select>
-    </p>
+        <p>
+            <label for="timeSlot"><strong>Time slot:</strong></label><br>
+            <select id="timeSlot" name="timeSlot" required>
+                <!-- γεμίζει αυτόματα με JavaScript -->
+            </select>
+        </p>
 
-    <p>
-        <label for="name"><strong>Name:</strong></label><br>
-        <input type="text" id="name" name="name" placeholder="Your name">
-    </p>
+        <p>
+            <label for="name"><strong>Name:</strong></label><br>
+            <input type="text" id="name" name="name" placeholder="Your name" required>
+        </p>
 
-    <p>
-        <label for="people"><strong>Number of people:</strong></label><br>
-        <input type="number" id="people" name="people" min="1" max="12" value="2">
-    </p>
+        <p>
+            <label for="email"><strong>Email:</strong></label><br>
+            <input type="email" id="email" name="email" placeholder="your@email.com" required>
+        </p>
 
-    <p>
-        <label for="notes"><strong>Notes (optional):</strong></label><br>
-        <textarea id="notes" name="notes" rows="3" cols="30"
-                  placeholder="Birthday, special requests etc."></textarea>
-    </p>
+        <p>
+            <label for="people"><strong>Number of people:</strong></label><br>
+            <input type="number" id="people" name="people" min="1" max="12" value="2" required>
+        </p>
 
-    <p>
-        <button type="button" class="btn">Request Reservation</button>
-    </p>
+        <p>
+            <label for="notes"><strong>Notes (optional):</strong></label><br>
+            <textarea id="notes" name="notes" rows="3" cols="30"
+                      placeholder="Birthday, special requests etc."></textarea>
+        </p>
 
-    <p style="font-size:12px; color:#777;">
-        * This is a reservation request. We will confirm your booking via phone or email.
-    </p>
+        <p>
+            <button type="submit" class="btn">Request Reservation</button>
+        </p>
+
+        <p id="reservationMessage" style="font-size:12px; color:#777;"></p>
+    </form>
 </section>
 
 <section>
@@ -112,8 +110,8 @@
     </p>
 </section>
 
-    <script>
-  // Slots για Τρίτη–Παρασκευή (8:00–15:00)
+ <script>
+  // Time slots για Τρίτη–Παρασκευή (08:00–15:00)
   const weekdaySlots = [
     "08:00 – 09:30",
     "09:30 – 11:00",
@@ -122,7 +120,7 @@
     "14:00 – 15:00"
   ];
 
-  // Slots για Σάββατο–Κυριακή (09:15–17:00)
+  // Time slots για Σάββατο–Κυριακή (09:15–17:00)
   const weekendSlots = [
     "09:15 – 10:45",
     "10:45 – 12:15",
@@ -131,15 +129,25 @@
     "15:15 – 17:00"
   ];
 
+  // Αντιστοίχιση μέρας → σωστά slots
+  const slotsByDay = {
+    tuesday: weekdaySlots,
+    wednesday: weekdaySlots,
+    thursday: weekdaySlots,
+    friday: weekdaySlots,
+    saturday: weekendSlots,
+    sunday: weekendSlots
+  };
+
   function updateTimeSlots() {
-    const dayType = document.getElementById("dayType").value;
+    const dayValue = document.getElementById("day").value;
     const select = document.getElementById("timeSlot");
+    const slots = slotsByDay[dayValue] || [];
 
     // καθάρισε τα παλιά options
     select.innerHTML = "";
 
-    const slots = dayType === "weekday" ? weekdaySlots : weekendSlots;
-
+    // γέμισε με τα slots για τη συγκεκριμένη μέρα
     slots.forEach(function (slot) {
       const option = document.createElement("option");
       option.value = slot;
@@ -148,11 +156,33 @@
     });
   }
 
-  // Γέμισμα των slots όταν φορτώνει η σελίδα
-  document.addEventListener("DOMContentLoaded", updateTimeSlots);
+  // Όταν φορτώσει η σελίδα
+  document.addEventListener("DOMContentLoaded", function () {
+    updateTimeSlots(); // γέμισε slots για default day (Tuesday)
 
-  // Αλλαγή slots όταν αλλάζει το dayType
-  document.getElementById("dayType").addEventListener("change", updateTimeSlots);
+    // άλλαζε slots όταν αλλάζει η μέρα
+    document.getElementById("day").addEventListener("change", updateTimeSlots);
+
+    // “υποβολή” φόρμας
+    const form = document.getElementById("reservationForm");
+    const messageEl = document.getElementById("reservationMessage");
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault(); // δεν στέλνουμε κάπου ακόμα
+
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
+      const dayText = document.getElementById("day").options[document.getElementById("day").selectedIndex].text;
+      const slot = document.getElementById("timeSlot").value;
+
+      messageEl.style.color = "#4caf50";
+      messageEl.textContent = `Thank you, ${name}! Your reservation request for ${dayText} at ${slot} has been received. A confirmation will be sent to ${email}.`;
+
+      // εδώ θα μπορούσες αργότερα να στείλεις τα στοιχεία σε server / υπηρεσία email
+      form.reset();
+      updateTimeSlots(); // ξαναγέμισε τα slots μετά το reset
+    });
+  });
 </script>
 
 </body>
