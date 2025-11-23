@@ -58,45 +58,66 @@ body {
     <a class="btn" href="#aboutus" style="margin-left: 10px;">About Us</a>
 </section>
 
-   <section id="aboutus" style="max-width: 1100px; margin: 0 auto; display: flex; gap: 40px; align-items: flex-start; flex-wrap: wrap;">
-    
-    <!-- TEXT -->
-    <div style="flex: 1 1 400px;">
-        <h2 style="color:#1b3d2f; font-size:32px; margin-bottom:20px;">About Us</h2>
+   <section id="aboutus" style="max-width: 1100px; margin: 40px auto;">
 
-        <p style="font-size:18px; line-height:1.6;">
-            Edem’s Yard is a medium-sized hospitality business located in the center of Larnaca.
-            It was founded with the goal of offering exceptional customer experiences through 
-            a menu that uniquely blends traditional and modern cuisine. Beyond its distinctive 
-            dishes, the restaurant stands out for its creative interior design, which has made it 
-            one of the most popular brunch destinations in Cyprus, attracting both locals and tourists.
-        </p>
+    <!-- BUTTON -->
+    <button onclick="toggleAbout()" 
+        style="width:100%; padding:15px; font-size:22px; font-weight:bold;
+               background:#1b3d2f; color:white; border:none; border-radius:8px;
+               cursor:pointer;">
+        About Us ⤵
+    </button>
 
-        <p style="font-size:18px; line-height:1.6; margin-top:20px;">
-            The business is co-owned and managed by two partners who handle all major decisions.
-            However, a significant issue has emerged regarding the fair distribution of ownership 
-            shares between them, especially considering that the business is intended to be passed 
-            on to their children in the future to ensure its continued success.
-        </p>
-    </div>
+    <!-- HIDDEN CONTENT (opens on click) -->
+    <div id="aboutContent" 
+         style="display:none; margin-top:30px; display:flex; gap:40px; flex-wrap:wrap; align-items:flex-start;">
 
-    <!-- IMAGES -->
-    <div style="flex: 1 1 400px; display:flex; flex-direction:column; gap:20px;">
+        <!-- TEXT -->
+        <div style="flex:1 1 400px;">
+            <p style="font-size:18px; line-height:1.6;">
+                Edem’s Yard is a medium-sized hospitality business located in the center of Larnaca.
+                It was founded with the goal of offering exceptional customer experiences through 
+                a menu that uniquely blends traditional and modern cuisine. Beyond its distinctive 
+                dishes, the restaurant stands out for its creative interior design, which has made it 
+                one of the most popular brunch destinations in Cyprus, attracting both locals and tourists.
+            </p>
 
-        <img src="images/d06b136e-f67c-4454-be2f-4f82f81ce4fd.jpg"
-             style="width:100%; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.2);" 
-             alt="Edem's Yard Interior 1">
+            <p style="font-size:18px; line-height:1.6; margin-top:20px;">
+                The business is co-owned and managed by two partners who handle all major decisions.
+                However, a significant issue has emerged regarding the fair distribution of ownership 
+                shares between them, especially considering that the business is intended to be passed 
+                on to their children in the future to ensure its continued success.
+            </p>
+        </div>
 
-        <img src="images/d9f3ca88-84d1-407b-a0f9-28a6462b0891.jpg"
-             style="width:100%; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.2);" 
-             alt="Edem's Yard Interior 2">
+        <!-- IMAGES -->
+        <div style="flex:1 1 400px; display:flex; flex-direction:column; gap:20px;">
 
-        <img src="images/2b0bbf3c-df07-4e43-987e-f9ca281f242a.jpg"
-             style="width:100%; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.2);" 
-             alt="Edem's Yard Interior 3">
+            <img src="images/d06b136e-f67c-4454-be2f-4f82f81ce4fd.jpg"
+                 style="width:100%; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.2);" 
+                 alt="Edem's Yard Interior 1">
+
+            <img src="images/d9f3ca88-84d1-407b-a0f9-28a6462b0891.jpg"
+                 style="width:100%; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.2);" 
+                 alt="Edem's Yard Interior 2">
+
+            <img src="images/2b0bbf3c-df07-4e43-987e-f9ca281f242a.jpg"
+                 style="width:100%; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.2);" 
+                 alt="Edem's Yard Interior 3">
+
+        </div>
+
     </div>
 
 </section>
+
+<!-- SCRIPT TO OPEN/CLOSE -->
+<script>
+function toggleAbout() {
+    var box = document.getElementById("aboutContent");
+    box.style.display = (box.style.display === "none") ? "flex" : "none";
+}
+</script>
 
 <script>
 function toggleAbout() {
